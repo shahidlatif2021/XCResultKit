@@ -129,31 +129,32 @@ public class XCResultFile {
 	private func xcresulttool(_ args: [String], output: XCRunOutput = .onlyOnSuccess) -> Data? {
 		var arguments = args
 		
-		//if appendLegacyFlag {
+		if appendLegacyFlag {
 			arguments.append("--legacy")
-		//}
+		}
 		
 		arguments.insert("xcresulttool", at: 0)
 		return xcrun(arguments, output: output)
 	}
     
 	private var appendLegacyFlag: Bool {
-		if let isAtLeastXcode16 = isAtLeastXcode16 {
-			return isAtLeastXcode16
-		}
-		var appendLegacy = false
-		// xcrun version 70 ships a new version of xcresulttool. Ensure compatibility.
-		if let versionData = xcrun(["--version"]), let versionString = String(data: versionData, encoding: .ascii) {
-			let scanner = Scanner(string: versionString)
-			scanner.scanString("xcrun version ")
+		return true
+		// if let isAtLeastXcode16 = isAtLeastXcode16 {
+		// 	return isAtLeastXcode16
+		// }
+		// var appendLegacy = false
+		// // xcrun version 70 ships a new version of xcresulttool. Ensure compatibility.
+		// if let versionData = xcrun(["--version"]), let versionString = String(data: versionData, encoding: .ascii) {
+		// 	let scanner = Scanner(string: versionString)
+		// 	scanner.scanString("xcrun version ")
 
-			if let version = scanner.scanDouble(), version >= 70.0 {
-				appendLegacy = true
-			}
-		}
-		isAtLeastXcode16 = appendLegacy
-		print("Is legacy flag is used: \(appendLegacy)")
-		return appendLegacy
+		// 	if let version = scanner.scanDouble(), version >= 70.0 {
+		// 		appendLegacy = true
+		// 	}
+		// }
+		// isAtLeastXcode16 = appendLegacy
+		// print("Is legacy flag is used: \(appendLegacy)")
+		// return appendLegacy
 	}
 	
     /// The export type can be file or directory
