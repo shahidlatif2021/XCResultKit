@@ -152,6 +152,7 @@ public class XCResultFile {
 			}
 		}
 		isAtLeastXcode16 = appendLegacy
+		print("Is legacy flag is used: \(appendLegacy)")
 		return appendLegacy
 	}
 	
