@@ -194,7 +194,7 @@ public class XCResultFile {
 		if appendLegacyFlag {
 			processArgs.append("--legacy")
 		}
-	print("XCResultKit Arguments in exportAttachment \(arguments)", terminator: "\n")
+	print("XCResultKit Arguments in exportAttachment \(processArgs)", terminator: "\n")
 	    fflush(stdout)
         xcresulttool(processArgs, output: .never)
     }
