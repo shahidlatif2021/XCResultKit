@@ -129,9 +129,9 @@ public class XCResultFile {
 	private func xcresulttool(_ args: [String], output: XCRunOutput = .onlyOnSuccess) -> Data? {
 		var arguments = args
 		
-		if appendLegacyFlag {
+		//if appendLegacyFlag {
 			arguments.append("--legacy")
-		}
+		//}
 		
 		arguments.insert("xcresulttool", at: 0)
 		return xcrun(arguments, output: output)
