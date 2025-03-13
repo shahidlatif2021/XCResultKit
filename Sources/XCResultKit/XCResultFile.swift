@@ -18,11 +18,6 @@ public class XCResultFile {
     public let url: URL
     
     public init(url: URL) {
-	    print("XCResultKit Log: Test log initilize with flush", terminator: "\n")
-	    fflush(stdout)
-	    FileHandle.standardOutput.write("XCResultKit Log: Direct output test\n".data(using: .utf8)!)
-	    fflush(stdout)
-
         self.url = url
     }
 	
