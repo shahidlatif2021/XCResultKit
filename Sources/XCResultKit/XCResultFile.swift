@@ -134,8 +134,6 @@ public class XCResultFile {
 		}
 		
 		arguments.insert("xcresulttool", at: 0)
-	print("XCResultKit Arguments in xcresulttool \(arguments)", terminator: "\n")
-	    fflush(stdout)
 		return xcrun(arguments, output: output)
 	}
     
